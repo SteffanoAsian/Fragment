@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 public class SecondFragment extends Fragment {
     private PageViewModel pageViewModel;
-    private TextView txtName;
+    private TextView txtName, txtAlamat, txtSchool, txtTTL, txtEmail, txtTel;
     public SecondFragment () {
 // Required empty public constructor
     }
@@ -43,12 +43,64 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle
             savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        //View Name
         txtName = view.findViewById(R.id.textViewName);
         pageViewModel.getName().observe(requireActivity(), new
                 Observer<String>() {
                     @Override
                     public void onChanged(@Nullable String s) {
                         txtName.setText(s);
+                    }
+                });
+
+        //View Alamat
+        txtAlamat = view.findViewById(R.id.TVAlamat);
+        pageViewModel.getAddress().observe(requireActivity(), new
+                Observer<String>() {
+                    @Override
+                    public void onChanged(@Nullable String s) {
+                        txtAlamat.setText(s);
+                    }
+                });
+
+        //View Sekolah
+        txtSchool = view.findViewById(R.id.TVSekolah);
+        pageViewModel.getSchool().observe(requireActivity(), new
+                Observer<String>() {
+                    @Override
+                    public void onChanged(@Nullable String s) {
+                        txtSchool.setText(s);
+                    }
+                });
+
+        //View TTL
+        txtTTL = view.findViewById(R.id.TVTTL);
+        pageViewModel.getTTL().observe(requireActivity(), new
+                Observer<String>() {
+                    @Override
+                    public void onChanged(@Nullable String s) {
+                        txtTTL.setText(s);
+                    }
+                });
+
+        //View Email
+        txtEmail = view.findViewById(R.id.TVEmail);
+        pageViewModel.getEmail().observe(requireActivity(), new
+                Observer<String>() {
+                    @Override
+                    public void onChanged(@Nullable String s) {
+                        txtEmail.setText(s);
+                    }
+                });
+
+        //View Tel
+        txtTel = view.findViewById(R.id.TVTel);
+        pageViewModel.getTel().observe(requireActivity(), new
+                Observer<String>() {
+                    @Override
+                    public void onChanged(@Nullable String s) {
+                        txtTel.setText(s);
                     }
                 });
     }
